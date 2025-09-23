@@ -1,0 +1,52 @@
+[
+  {
+    "cliente": {"nome": "João da Silva", "telefone": "11987654321", "email": "joao.silva@example.com"},
+    "endereco_coleta": {"rua": "Rua das Flores", "numero": 123, "bairro": "Centro", "cidade": "São Paulo", "estado": "SP", "cep": "01001000"},
+    "endereco_entrega": {"rua": "Avenida Brasil", "numero": 456, "bairro": "Jardins", "cidade": "São Paulo", "estado": "SP", "cep": "01430000"}
+  },
+  {
+    "cliente": {"nome": "Maria Oliveira", "telefone": "21999998888", "email": "maria.oliveira@example.com"},
+    "endereco_coleta": {"rua": "Rua das Laranjeiras", "numero": 77, "bairro": "Laranjeiras", "cidade": "Rio de Janeiro", "estado": "RJ", "cep": "22240003"},
+    "endereco_entrega": {"rua": "Avenida Atlântica", "numero": 1200, "bairro": "Copacabana", "cidade": "Rio de Janeiro", "estado": "RJ", "cep": "22021001"}
+  },
+  {
+    "cliente": {"nome": "Carlos Pereira", "telefone": "31988887777", "email": "carlos.pereira@example.com"},
+    "endereco_coleta": {"rua": "Rua Goiás", "numero": 250, "bairro": "Funcionários", "cidade": "Belo Horizonte", "estado": "MG", "cep": "30150100"},
+    "endereco_entrega": {"rua": "Avenida Afonso Pena", "numero": 999, "bairro": "Centro", "cidade": "Belo Horizonte", "estado": "MG", "cep": "30130120"}
+  },
+  {
+    "cliente": {"nome": "Ana Souza", "telefone": "41977776666", "email": "ana.souza@example.com"},
+    "endereco_coleta": {"rua": "Rua XV de Novembro", "numero": 45, "bairro": "Centro", "cidade": "Curitiba", "estado": "PR", "cep": "80020010"},
+    "endereco_entrega": {"rua": "Avenida Batel", "numero": 300, "bairro": "Batel", "cidade": "Curitiba", "estado": "PR", "cep": "80250010"}
+  },
+  {
+    "cliente": {"nome": "Fernanda Lima", "telefone": "51966665555", "email": "fernanda.lima@example.com"},
+    "endereco_coleta": {"rua": "Rua da Praia", "numero": 800, "bairro": "Centro Histórico", "cidade": "Porto Alegre", "estado": "RS", "cep": "90020001"},
+    "endereco_entrega": {"rua": "Avenida Ipiranga", "numero": 2000, "bairro": "Jardim Botânico", "cidade": "Porto Alegre", "estado": "RS", "cep": "90610001"}
+  },
+  {
+    "cliente": {"nome": "Lucas Almeida", "telefone": "61955554444", "email": "lucas.almeida@example.com"},
+    "endereco_coleta": {"rua": "Quadra 201", "numero": 15, "bairro": "Asa Sul", "cidade": "Brasília", "estado": "DF", "cep": "70350010"},
+    "endereco_entrega": {"rua": "Setor Comercial Sul", "numero": 5, "bairro": "Plano Piloto", "cidade": "Brasília", "estado": "DF", "cep": "70300100"}
+  },
+  {
+    "cliente": {"nome": "Patrícia Gomes", "telefone": "71944443333", "email": "patricia.gomes@example.com"},
+    "endereco_coleta": {"rua": "Avenida Sete de Setembro", "numero": 400, "bairro": "Comércio", "cidade": "Salvador", "estado": "BA", "cep": "40060001"},
+    "endereco_entrega": {"rua": "Avenida Paralela", "numero": 2500, "bairro": "Itaigara", "cidade": "Salvador", "estado": "BA", "cep": "41820021"}
+  },
+  {
+    "cliente": {"nome": "Rafael Costa", "telefone": "81933332222", "email": "rafael.costa@example.com"},
+    "endereco_coleta": {"rua": "Rua da Aurora", "numero": 99, "bairro": "Santo Amaro", "cidade": "Recife", "estado": "PE", "cep": "50050000"},
+    "endereco_entrega": {"rua": "Avenida Boa Viagem", "numero": 800, "bairro": "Boa Viagem", "cidade": "Recife", "estado": "PE", "cep": "51011000"}
+  },
+  {
+    "cliente": {"nome": "Beatriz Santos", "telefone": "85922221111", "email": "beatriz.santos@example.com"},
+    "endereco_coleta": {"rua": "Avenida Bezerra de Menezes", "numero": 1200, "bairro": "Farias Brito", "cidade": "Fortaleza", "estado": "CE", "cep": "60325001"},
+    "endereco_entrega": {"rua": "Avenida Santos Dumont", "numero": 3000, "bairro": "Aldeota", "cidade": "Fortaleza", "estado": "CE", "cep": "60150016"}
+  },
+  {
+    "cliente": {"nome": "Diego Fernandes", "telefone": "11911112222", "email": "diego.fernandes@example.com"},
+    "endereco_coleta": {"rua": "Rua Augusta", "numero": 700, "bairro": "Consolação", "cidade": "São Paulo", "estado": "SP", "cep": "01304000"},
+    "endereco_entrega": {"rua": "Avenida Paulista", "numero": 1500, "bairro": "Bela Vista", "cidade": "São Paulo", "estado": "SP", "cep": "01310100"}
+  }
+]

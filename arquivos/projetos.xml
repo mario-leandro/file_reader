@@ -1,0 +1,241 @@
+<projetos>
+  <projeto>
+    <cliente>
+      <nome>João da Silva</nome>
+      <telefone>11987654321</telefone>
+      <email>joao.silva@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua das Flores</rua>
+      <numero>123</numero>
+      <bairro>Centro</bairro>
+      <cidade>São Paulo</cidade>
+      <estado>SP</estado>
+      <cep>01001000</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Brasil</rua>
+      <numero>456</numero>
+      <bairro>Jardins</bairro>
+      <cidade>São Paulo</cidade>
+      <estado>SP</estado>
+      <cep>01430000</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Maria Oliveira</nome>
+      <telefone>21999998888</telefone>
+      <email>maria.oliveira@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua das Laranjeiras</rua>
+      <numero>77</numero>
+      <bairro>Laranjeiras</bairro>
+      <cidade>Rio de Janeiro</cidade>
+      <estado>RJ</estado>
+      <cep>22240003</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Atlântica</rua>
+      <numero>1200</numero>
+      <bairro>Copacabana</bairro>
+      <cidade>Rio de Janeiro</cidade>
+      <estado>RJ</estado>
+      <cep>22021001</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Carlos Pereira</nome>
+      <telefone>31988887777</telefone>
+      <email>carlos.pereira@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua Goiás</rua>
+      <numero>250</numero>
+      <bairro>Funcionários</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <estado>MG</estado>
+      <cep>30150100</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Afonso Pena</rua>
+      <numero>999</numero>
+      <bairro>Centro</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <estado>MG</estado>
+      <cep>30130120</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Ana Souza</nome>
+      <telefone>41977776666</telefone>
+      <email>ana.souza@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua XV de Novembro</rua>
+      <numero>45</numero>
+      <bairro>Centro</bairro>
+      <cidade>Curitiba</cidade>
+      <estado>PR</estado>
+      <cep>80020010</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Batel</rua>
+      <numero>300</numero>
+      <bairro>Batel</bairro>
+      <cidade>Curitiba</cidade>
+      <estado>PR</estado>
+      <cep>80250010</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Fernanda Lima</nome>
+      <telefone>51966665555</telefone>
+      <email>fernanda.lima@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua da Praia</rua>
+      <numero>800</numero>
+      <bairro>Centro Histórico</bairro>
+      <cidade>Porto Alegre</cidade>
+      <estado>RS</estado>
+      <cep>90020001</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Ipiranga</rua>
+      <numero>2000</numero>
+      <bairro>Jardim Botânico</bairro>
+      <cidade>Porto Alegre</cidade>
+      <estado>RS</estado>
+      <cep>90610001</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Lucas Almeida</nome>
+      <telefone>61955554444</telefone>
+      <email>lucas.almeida@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Quadra 201</rua>
+      <numero>15</numero>
+      <bairro>Asa Sul</bairro>
+      <cidade>Brasília</cidade>
+      <estado>DF</estado>
+      <cep>70350010</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Setor Comercial Sul</rua>
+      <numero>5</numero>
+      <bairro>Plano Piloto</bairro>
+      <cidade>Brasília</cidade>
+      <estado>DF</estado>
+      <cep>70300100</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Patrícia Gomes</nome>
+      <telefone>71944443333</telefone>
+      <email>patricia.gomes@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Avenida Sete de Setembro</rua>
+      <numero>400</numero>
+      <bairro>Comércio</bairro>
+      <cidade>Salvador</cidade>
+      <estado>BA</estado>
+      <cep>40060001</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Paralela</rua>
+      <numero>2500</numero>
+      <bairro>Itaigara</bairro>
+      <cidade>Salvador</cidade>
+      <estado>BA</estado>
+      <cep>41820021</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Rafael Costa</nome>
+      <telefone>81933332222</telefone>
+      <email>rafael.costa@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua da Aurora</rua>
+      <numero>99</numero>
+      <bairro>Santo Amaro</bairro>
+      <cidade>Recife</cidade>
+      <estado>PE</estado>
+      <cep>50050000</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Boa Viagem</rua>
+      <numero>800</numero>
+      <bairro>Boa Viagem</bairro>
+      <cidade>Recife</cidade>
+      <estado>PE</estado>
+      <cep>51011000</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Beatriz Santos</nome>
+      <telefone>85922221111</telefone>
+      <email>beatriz.santos@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Avenida Bezerra de Menezes</rua>
+      <numero>1200</numero>
+      <bairro>Farias Brito</bairro>
+      <cidade>Fortaleza</cidade>
+      <estado>CE</estado>
+      <cep>60325001</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Santos Dumont</rua>
+      <numero>3000</numero>
+      <bairro>Aldeota</bairro>
+      <cidade>Fortaleza</cidade>
+      <estado>CE</estado>
+      <cep>60150016</cep>
+    </endereco_entrega>
+  </projeto>
+
+  <projeto>
+    <cliente>
+      <nome>Diego Fernandes</nome>
+      <telefone>11911112222</telefone>
+      <email>diego.fernandes@example.com</email>
+    </cliente>
+    <endereco_coleta>
+      <rua>Rua Augusta</rua>
+      <numero>700</numero>
+      <bairro>Consolação</bairro>
+      <cidade>São Paulo</cidade>
+      <estado>SP</estado>
+      <cep>01304000</cep>
+    </endereco_coleta>
+    <endereco_entrega>
+      <rua>Avenida Paulista</rua>
+      <numero>1500</numero>
+      <bairro>Bela Vista</bairro>
+      <cidade>São Paulo</cidade>
+      <estado>SP</estado>
+      <cep>01310100</cep>
+    </endereco_entrega>
+  </projeto>
+</projetos>

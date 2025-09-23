@@ -1,0 +1,11 @@
+nome,telefone,email,rua_coleta,numero_coleta,bairro_coleta,cidade_coleta,estado_coleta,cep_coleta,rua_entrega,numero_entrega,bairro_entrega,cidade_entrega,estado_entrega,cep_entrega
+João da Silva,11987654321,joao.silva@example.com,Rua das Flores,123,Centro,São Paulo,SP,01001000,Avenida Brasil,456,Jardins,São Paulo,SP,01430000
+Maria Oliveira,21999998888,maria.oliveira@example.com,Rua das Laranjeiras,77,Laranjeiras,Rio de Janeiro,RJ,22240003,Avenida Atlântica,1200,Copacabana,Rio de Janeiro,RJ,22021001
+Carlos Pereira,31988887777,carlos.pereira@example.com,Rua Goiás,250,Funcionários,Belo Horizonte,MG,30150100,Avenida Afonso Pena,999,Centro,Belo Horizonte,MG,30130120
+Ana Souza,41977776666,ana.souza@example.com,Rua XV de Novembro,45,Centro,Curitiba,PR,80020010,Avenida Batel,300,Batel,Curitiba,PR,80250010
+Fernanda Lima,51966665555,fernanda.lima@example.com,Rua da Praia,800,Centro Histórico,Porto Alegre,RS,90020001,Avenida Ipiranga,2000,Jardim Botânico,Porto Alegre,RS,90610001
+Lucas Almeida,61955554444,lucas.almeida@example.com,Quadra 201,15,Asa Sul,Brasília,DF,70350010,Setor Comercial Sul,5,Plano Piloto,Brasília,DF,70300100
+Patrícia Gomes,71944443333,patricia.gomes@example.com,Avenida Sete de Setembro,400,Comércio,Salvador,BA,40060001,Avenida Paralela,2500,Itaigara,Salvador,BA,41820021
+Rafael Costa,81933332222,rafael.costa@example.com,Rua da Aurora,99,Santo Amaro,Recife,PE,50050000,Avenida Boa Viagem,800,Boa Viagem,Recife,PE,51011000
+Beatriz Santos,85922221111,beatriz.santos@example.com,Avenida Bezerra de Menezes,1200,Farias Brito,Fortaleza,CE,60325001,Avenida Santos Dumont,3000,Aldeota,Fortaleza,CE,60150016
+Diego Fernandes,11911112222,diego.fernandes@example.com,Rua Augusta,700,Consolação,São Paulo,SP,01304000,Avenida Paulista,1500,Bela Vista,São Paulo,SP,01310100
