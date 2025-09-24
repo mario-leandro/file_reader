@@ -1,6 +1,6 @@
 <?php
 
-require_once '../configs.php';
+include __DIR__ . '/../common.php';
 
 function getConnectionDB() {
     try {
@@ -13,6 +13,6 @@ function getConnectionDB() {
 
         return $db_connection;
     } catch (PDOException $e) {
-        resposta(500, ["success" => false, "error" => "Database connection failed: " . $e->getMessage()]);
+        resposta(["success" => false, "error" => "Database connection failed: " . $e->getMessage()]);
     }
 }
