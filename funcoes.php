@@ -155,7 +155,7 @@ function processarXML($db_connection, $arquivo) {
     libxml_use_internal_errors(true);
 
     $xml = simplexml_load_file($arquivo);
-    if ($xml === false) {
+    if (!$xml) {
         echo "Erro ao carregar XML\n";
         foreach (libxml_get_errors() as $error) {
             echo $error->message . "\n";
