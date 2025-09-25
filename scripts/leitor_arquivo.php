@@ -23,8 +23,6 @@ if (php_sapi_name() === 'cli') {
 
     switch ($tipoArquivo) {
         case 'text/csv':
-        case 'text/plain':
-        case 'application/vnd.ms-excel':
             processarCSV($db_connection, $filePath);
             break;
 
@@ -32,9 +30,10 @@ if (php_sapi_name() === 'cli') {
             processarJSON($db_connection, $filePath);
             break;
 
-        case 'application/xml':
         case 'text/xml':
-            // processarXML($db_connection, $filePath);
+        case 'application/xml':
+        case 'text/plain': // Alguns arquivos XML podem ser detectados como text/plain
+            processarXML($db_connection, $filePath);
             break;
 
         default:

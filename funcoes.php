@@ -57,7 +57,7 @@ function processarCSV($db_connection, $arquivo) {
         resposta(["success" => false, "mensagem" => "Tipo de arquivo não permitido."]);
         return;
     }
-
+    
     if (($handle = fopen($arquivo, 'r')) !== false) {
         $header = fgetcsv($handle, 1000, ',');
         while (($data = fgetcsv($handle, 1000, ',')) !== false) {
@@ -157,41 +157,47 @@ function processarJSON($db_connection, $arquivo) {
     resposta(["success" => true, "mensagem" => "Arquivo JSON processado com sucesso."]);
 }
 
-// function processarXML($db_connection, $arquivo) {
-//     if (!validarArquivo($_FILES['file']['tmp_name'])) {
-//         resposta(["success" => false, "mensagem" => "Tipo de arquivo não permitido."]);
-//         return;
-//     }
+function processarXML($db_connection, $arquivo) {
+    libxml_use_internal_errors(true);
 
-//     $db_connection = getConnectionDB();
+    $xml = simplexml_load_file($arquivo);
+    if ($xml === false) {
+        echo "Erro ao carregar XML\n";
+        foreach (libxml_get_errors() as $error) {
+            echo $error->message . "\n";
+        }
+        libxml_clear_errors();
+        return;
+    }
 
-//     $infoArquivo = finfo_open(FILEINFO_MIME_TYPE);
-//     $tipoArquivo = finfo_file($infoArquivo, $arquivo);
-//     finfo_close($infoArquivo);
+    foreach ($xml->projeto as $projeto) {
+        $arr_dados = [
+            'cliente' => [
+                'nome'  => (string) $projeto->cliente->nome,
+                'telefone' => (string) $projeto->cliente->telefone,
+                'email' => (string) $projeto->cliente->email
+            ],
+            'endereco_coleta' => [
+                'rua'    => (string) $projeto->endereco_coleta->rua,
+                'numero' => (string) $projeto->endereco_coleta->numero,
+                'bairro' => (string) $projeto->endereco_coleta->bairro,
+                'cidade' => (string) $projeto->endereco_coleta->cidade,
+                'estado' => (string) $projeto->endereco_coleta->estado,
+                'cep'    => (string) $projeto->endereco_coleta->cep,
+            ],
+            'endereco_entrega' => [
+                'rua'    => (string) $projeto->endereco_entrega->rua,
+                'numero' => (string) $projeto->endereco_entrega->numero,
+                'bairro' => (string) $projeto->endereco_entrega->bairro,
+                'cidade' => (string) $projeto->endereco_entrega->cidade,
+                'estado' => (string) $projeto->endereco_entrega->estado,
+                'cep'    => (string) $projeto->endereco_entrega->cep,
+            ]
+        ];
 
-//     if ($tipoArquivo !== 'application/xml' && $tipoArquivo !== 'text/xml') {
-//         resposta(["success" => false, "mensagem" => "Tipo de arquivo não suportado para XML."]);
-//         return;
-//     }
+        salvarNoBanco($db_connection, $arr_dados);
+    }
 
-//     libxml_use_internal_errors(true);
-//     $xml = simplexml_load_file($arquivo, "SimpleXMLElement", LIBXML_NOCDATA);
-//     if ($xml === false) {
-//         $errors = libxml_get_errors();
-//         $error_messages = array_map(function($error) {
-//             return $error->message;
-//         }, $errors);
-//         libxml_clear_errors();
-//         resposta(["success" => false, "mensagem" => "Erro ao analisar XML: " . implode(", ", $error_messages)]);
-//         return;
-//     }
 
-//     $json = json_encode($xml);
-//     $dados = json_decode($json, true);
-
-//     foreach ($dados['pedido'] as $item) {
-//         salvarNoBanco($db_connection, $item);
-//     }
-
-//     resposta(["success" => true, "mensagem" => "Arquivo XML processado com sucesso."]);
-// }
+    resposta(["success" => true, "mensagem" => "Arquivo XML processado com sucesso."]);
+}
