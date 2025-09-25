@@ -2,12 +2,6 @@
 
 include_once __DIR__ . '/database/database.php';
 
-function headers() {
-    header("Content-Type: application/json; charset=UTF-8");
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: POST");
-}
-
 function resposta(array $mensagem) {
     echo json_encode($mensagem);
 }

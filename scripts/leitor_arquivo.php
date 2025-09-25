@@ -42,7 +42,3 @@ if (php_sapi_name() === 'cli') {
     }
     exit;
 }
-
-if (php_sapi_name() !== 'cli') {
-    headers();
-}
