@@ -6,14 +6,14 @@ if (php_sapi_name() === 'cli') {
     global $argv;
 
     if (!isset($argv[1])) {
-        echo "Uso: php leitor_arquivo.php <caminho_arquivo>\n";
+        resposta(["success" => false, "mensagem" => "Uso: php leitor_arquivo.php <caminho_do_arquivo>\n"]);
         exit(1);
     }
 
     $filePath = $argv[1];
 
     if (!file_exists($filePath)) {
-        echo "Arquivo não encontrado: $filePath\n";
+        resposta(["success" => false, "mensagem" => "Arquivo não encontrado: $filePath\n"]);
         exit(1);
     }
 
@@ -32,7 +32,7 @@ if (php_sapi_name() === 'cli') {
 
         case 'text/xml':
         case 'application/xml':
-        case 'text/plain': // Alguns arquivos XML podem ser detectados como text/plain
+        case 'text/plain':
             processarXML($db_connection, $filePath);
             break;
 
