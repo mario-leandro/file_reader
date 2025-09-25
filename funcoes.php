@@ -27,9 +27,9 @@ function salvarNoBanco($db_connection, $dados) {
         $sql = $db_connection->prepare("INSERT INTO pedido (nome, telefone, email, rua_coleta, numero_coleta, bairro_coleta, cidade_coleta, estado_coleta, cep_coleta, rua_entrega, numero_entrega, bairro_entrega, cidade_entrega, estado_entrega, cep_entrega) VALUES (:nome, :telefone, :email, :rua_coleta, :numero_coleta, :bairro_coleta, :cidade_coleta, :estado_coleta, :cep_coleta, :rua_entrega, :numero_entrega, :bairro_entrega, :cidade_entrega, :estado_entrega, :cep_entrega)");
         
         $arr_dados = [
-            ':nome' => $dados['nome'],
-            ':telefone' => $dados['telefone'],
-            ':email' => $dados['email'],
+            ':nome' => $dados['cliente']['nome'],
+            ':telefone' => $dados['cliente']['telefone'],
+            ':email' => $dados['cliente']['email'],
             ':rua_coleta' => $dados['endereco_coleta']['rua'],
             ':numero_coleta' => $dados['endereco_coleta']['numero'],
             ':bairro_coleta' => $dados['endereco_coleta']['bairro'],
@@ -58,38 +58,39 @@ function processarCSV($db_connection, $arquivo) {
         return;
     }
 
-    if (($handle = fopen($_FILES['file']['tmp_name'], 'r')) !== false) {
+    if (($handle = fopen($arquivo, 'r')) !== false) {
         $header = fgetcsv($handle, 1000, ',');
         while (($data = fgetcsv($handle, 1000, ',')) !== false) {
             $row = array_combine($header, $data);
             
             // Reorganizar os dados para o formato aninhado
             $dados_formatados = [
-                'nome' => $row['clientes']['nome'],
-                'telefone' => $row['clientes']['telefone'],
-                'email' => $row['clientes']['email'],
+                'cliente' => [
+                    'nome' => $row['nome'],
+                    'telefone' => $row['telefone'],
+                    'email' => $row['email']
+                ],
                 'endereco_coleta' => [
-                    'rua' => $row['endereco_coleta']['rua'],
-                    'numero' => $row['endereco_coleta']['numero'],
-                    'bairro' => $row['endereco_coleta']['bairro'],
-                    'cidade' => $row['endereco_coleta']['cidade'],
-                    'estado' => $row['endereco_coleta']['estado'],
-                    'cep' => $row['endereco_coleta']['cep'],
+                    'rua' => $row['rua_coleta'],
+                    'numero' => $row['numero_coleta'],
+                    'bairro' => $row['bairro_coleta'],
+                    'cidade' => $row['cidade_coleta'],
+                    'estado' => $row['estado_coleta'],
+                    'cep' => $row['cep_coleta'],
                 ],
                 'endereco_entrega' => [
-                    'rua' => $row['endereco_entrega']['rua'],
-                    'numero' => $row['endereco_entrega']['numero'],
-                    'bairro' => $row['endereco_entrega']['bairro'],
-                    'cidade' => $row['endereco_entrega']['cidade'],
-                    'estado' => $row['endereco_entrega']['estado'],
-                    'cep' => $row['endereco_entrega']['cep'],
+                    'rua' => $row['rua_entrega'],
+                    'numero' => $row['numero_entrega'],
+                    'bairro' => $row['bairro_entrega'],
+                    'cidade' => $row['cidade_entrega'],
+                    'estado' => $row['estado_entrega'],
+                    'cep' => $row['cep_entrega'],
                 ]
             ];
 
             var_dump($dados_formatados);
-            
-            // Chamar a função salvarNoBanco com os dados reformatados
-            // salvarNoBanco($db_connection, $dados_formatados);
+
+            salvarNoBanco($db_connection, $dados_formatados);
         }
         fclose($handle);
         resposta(["success" => true, "mensagem" => "Arquivo CSV processado com sucesso."]);
@@ -98,61 +99,63 @@ function processarCSV($db_connection, $arquivo) {
     }
 }
 
-// function processarJSON($db_connection, $arquivo) {
-//     if (!validarArquivo($arquivo)) {
-//         resposta(["success" => false, "mensagem" => "Tipo de arquivo não permitido."]);
-//         return;
-//     }
+function processarJSON($db_connection, $arquivo) {
+    if (!validarArquivo($arquivo)) {
+        resposta(["success" => false, "mensagem" => "Tipo de arquivo não permitido."]);
+        return;
+    }
 
-//     $db_connection = getConnectionDB();
+    $db_connection = getConnectionDB();
 
-//     $infoArquivo = finfo_open(FILEINFO_MIME_TYPE);
-//     $tipoArquivo = finfo_file($infoArquivo, $arquivo);
-//     finfo_close($infoArquivo);
+    $infoArquivo = finfo_open(FILEINFO_MIME_TYPE);
+    $tipoArquivo = finfo_file($infoArquivo, $arquivo);
+    finfo_close($infoArquivo);
 
-//     if ($tipoArquivo !== 'application/json') {
-//         resposta(["success" => false, "mensagem" => "Tipo de arquivo não suportado para JSON."]);
-//         return;
-//     }
+    if ($tipoArquivo !== 'application/json') {
+        resposta(["success" => false, "mensagem" => "Tipo de arquivo não suportado para JSON."]);
+        return;
+    }
 
-//     $conteudo_arquivo = file_get_contents($arquivo);
-//     $dados = json_decode($conteudo_arquivo, true);
+    $conteudo_arquivo = file_get_contents($arquivo);
+    $dados = json_decode($conteudo_arquivo, true);
 
-//     if (json_last_error() !== JSON_ERROR_NONE) {
-//         resposta(["success" => false, "mensagem" => "Erro ao decodificar JSON: " . json_last_error_msg()]);
-//         return;
-//     }
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        resposta(["success" => false, "mensagem" => "Erro ao decodificar JSON: " . json_last_error_msg()]);
+        return;
+    }
 
-//     foreach ($dados as $item) {
-//         $arr_dados = [
-//             'nome' => $item['cliente']['nome'],
-//             'telefone' => $item['cliente']['telefone'],
-//             'email' => $item['cliente']['email'],
-//             'endereco_coleta' => [
-//                 'rua' => $item['endereco_coleta']['rua'],
-//                 'numero' => $item['endereco_coleta']['numero'],
-//                 'bairro' => $item['endereco_coleta']['bairro'],
-//                 'cidade' => $item['endereco_coleta']['cidade'],
-//                 'estado' => $item['endereco_coleta']['estado'],
-//                 'cep' => $item['endereco_coleta']['cep'],
-//             ],
-//             'endereco_entrega' => [
-//                 'rua' => $item['endereco_entrega']['rua'],
-//                 'numero' => $item['endereco_entrega']['numero'],
-//                 'bairro' => $item['endereco_entrega']['bairro'],
-//                 'cidade' => $item['endereco_entrega']['cidade'],
-//                 'estado' => $item['endereco_entrega']['estado'],
-//                 'cep' => $item['endereco_entrega']['cep'],
-//             ]
-//         ];
+    foreach ($dados as $item) {
+        $arr_dados = [
+            'cliente' => [
+                'nome' => $item['cliente']['nome'],
+                'telefone' => $item['cliente']['telefone'],
+                'email' => $item['cliente']['email']
+            ],
+            'endereco_coleta' => [
+                'rua' => $item['endereco_coleta']['rua'],
+                'numero' => $item['endereco_coleta']['numero'],
+                'bairro' => $item['endereco_coleta']['bairro'],
+                'cidade' => $item['endereco_coleta']['cidade'],
+                'estado' => $item['endereco_coleta']['estado'],
+                'cep' => $item['endereco_coleta']['cep'],
+            ],
+            'endereco_entrega' => [
+                'rua' => $item['endereco_entrega']['rua'],
+                'numero' => $item['endereco_entrega']['numero'],
+                'bairro' => $item['endereco_entrega']['bairro'],
+                'cidade' => $item['endereco_entrega']['cidade'],
+                'estado' => $item['endereco_entrega']['estado'],
+                'cep' => $item['endereco_entrega']['cep'],
+            ]
+        ];
 
-//         // var_dump($arr_dados);
+        // var_dump($arr_dados);
 
-//         salvarNoBanco($db_connection, $arr_dados);
-//     }
+        salvarNoBanco($db_connection, $arr_dados);
+    }
 
-//     resposta(["success" => true, "mensagem" => "Arquivo JSON processado com sucesso."]);
-// }
+    resposta(["success" => true, "mensagem" => "Arquivo JSON processado com sucesso."]);
+}
 
 // function processarXML($db_connection, $arquivo) {
 //     if (!validarArquivo($_FILES['file']['tmp_name'])) {
